@@ -6,6 +6,8 @@ class Y:
 	def __init__(self,nj=0.5):
 		self.nj = nj
 		self.o = []
+		self.e = 2.71828
+
 	def gets(self,go):
 		if (len(go) <= 1):
 			if (len(go)==0):
@@ -18,12 +20,21 @@ class Y:
 				self.bs = go[i]
 				self.o[-1].append(go[i])
 		self.o[-1].append(go[-1])
+		return self.o
 
-	def rt(num=1):
+	def rt(self,num=1):
 		lt = []
-		#for i in range(num):
-		#	lt.append(r.randunfom(0,1))
+		for i in range(num):
+			lt.append(r.uniform(-1, 1))
 		return lt
+
+	def f(self,x):
+		return (np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x))
+
+	def los(self,lst):
+		for i in range(len(lst)):
+			lst[i] = self.f(lst[i])
+		return lst
 
 	def run(self,go):
 		return 0
